@@ -304,3 +304,8 @@ test "train" {
     try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two_words"));
     try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "Two-Words"));
 }
+
+test {
+    _ = @import("word_iterator.zig");
+    _ = @import("format_string.zig");
+}
