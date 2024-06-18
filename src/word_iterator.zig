@@ -49,8 +49,8 @@ pub fn splitWords(ascii_string: []const u8) WordIterator {
 
     // Split on words if there are no delimiters and the string as multiple cases (except capitalized)
     if (std.mem.indexOfAny(u8, ascii_string, "./_- ") == null) {
-        const has_upper = std.mem.indexOfAny(u8, ascii_string, "ABCDEFGHIJKLMNOPKRSTUVWXYZ") != null;
-        const has_lower = std.mem.indexOfAny(u8, ascii_string, "abcdefghijklmnopkrstuvwxyz") != null;
+        const has_upper = std.mem.indexOfAny(u8, ascii_string, "ABCDEFGHIJKLMNOPQRSTUVWXYZ") != null;
+        const has_lower = std.mem.indexOfAny(u8, ascii_string, "abcdefghijklmnopqrstuvwxyz") != null;
 
         if (has_upper and has_lower and isCapitalized(ascii_string) == false) {
             it.split = .word;
