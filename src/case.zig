@@ -283,7 +283,7 @@ test "snake" {
 /// Convert a string to `Train-Case`.
 /// Caller owns returned string and must free with `allocator`.
 pub fn toTrainCase(allocator: Allocator, ascii_string: []const u8) ![]u8 {
-    return formatString(allocator, ascii_string, .capital, .capital, '_');
+    return formatString(allocator, ascii_string, .capital, .capital, '-');
 }
 
 test "train" {
@@ -292,17 +292,17 @@ test "train" {
 
     const allocator = arena.allocator();
 
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "twoWords"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "Two Words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "TWO_WORDS"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two.words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two-words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "Two_Words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two/words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "Two words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "two_words"));
-    try std.testing.expectEqualStrings("Two_Words", try toTrainCase(allocator, "Two-Words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "twoWords"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "Two Words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "TWO_WORDS"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "two.words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "two-words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "two words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "Two_Words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "two/words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "Two words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "two_words"));
+    try std.testing.expectEqualStrings("Two-Words", try toTrainCase(allocator, "Two-Words"));
 }
 
 test {
