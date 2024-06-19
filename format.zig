@@ -1,7 +1,7 @@
 const std = @import("std");
 const Allocator = std.mem.Allocator;
 
-const splitWords = @import("word_iterator.zig").splitWords;
+const splitWords = @import("word.zig").splitWords;
 
 fn allocCapitalString(allocator: Allocator, ascii_string: []const u8) ![]u8 {
     var lower_str = try std.ascii.allocLowerString(allocator, ascii_string);

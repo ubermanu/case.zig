@@ -3,7 +3,7 @@ const std = @import("std");
 const ArenaAllocator = std.heap.ArenaAllocator;
 const Allocator = std.mem.Allocator;
 
-const formatString = @import("format_string.zig").formatString;
+const formatString = @import("format.zig").formatString;
 
 /// Convert a string to `camelCase`.
 /// Caller owns returned string and must free with `allocator`.
@@ -306,6 +306,6 @@ test "train" {
 }
 
 test {
-    _ = @import("word_iterator.zig");
-    _ = @import("format_string.zig");
+    _ = @import("format.zig");
+    _ = @import("word.zig");
 }
