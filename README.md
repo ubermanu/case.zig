@@ -10,7 +10,7 @@ zig fetch --save git+https://github.com/ubermanu/case.zig
 
 ```zig
 const case_mod = b.dependency("case", .{});
-exe.root_module.addImport("case", case_mod.module("case"));
+exe.addImport("case", case_mod.module("case"));
 ```
 
 ## Usage
